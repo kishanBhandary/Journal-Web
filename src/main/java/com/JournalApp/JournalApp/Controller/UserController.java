@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+import static java.lang.constant.ConstantDescs.NULL;
+
 @RestController
 @RequestMapping("/user")
 public class UserController {
@@ -22,6 +24,18 @@ public class UserController {
     @PostMapping
    public void createUser(@RequestBody User user){
         userService.saveUserEntry(user);
+    }
+    @PutMapping("/{userName}")
+    public ResponseEntity<User> updateUser(@RequestBody User user, @PathVariable String userName) {
+        User existingUser = userService.findByUserName(userName);
+        if (existingUser != null) {
+            existingUser.setUserName(user.getUserName());
+            existingUser.setPassword(user.getPassword());
+            userService.saveUserEntry(existingUser);
+            return new ResponseEntity<>(existingUser, HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
     }
 
 }
