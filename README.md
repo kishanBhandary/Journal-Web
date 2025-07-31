@@ -21,5 +21,5 @@ A Spring Boot application to manage journal users with basic CRUD operations, in
 - Lombok
 - IntelliJ IDEA
 
-## 📂 Project Structure
+
 
