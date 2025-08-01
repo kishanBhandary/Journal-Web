@@ -12,5 +12,7 @@ public class JournalService {
     public void addJournalEntry(Journal journal){
         journalRepository.save(journal);
     }
+    public void saveJournal(Journal journal){
 
+    }
 }
