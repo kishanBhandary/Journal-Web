@@ -5,15 +5,13 @@ import com.JournalApp.JournalApp.model.Journal;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import java.util.List;
-
 @Component
 public class JournalService {
     @Autowired
-    private JournalRepository journalRepository;
+   protected JournalRepository journalRepository;
 
-    public List<Journal> getAllJournal(Journal journal){
-        return journalRepository.findAll();
+    public void getAllJournal(Journal journal){
+        journalRepository.findAll();
     }
 
     public void saveJournal(Journal journal){
