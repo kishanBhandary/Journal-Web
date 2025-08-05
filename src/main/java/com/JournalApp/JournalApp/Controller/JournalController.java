@@ -17,7 +17,6 @@ public class JournalController {
     private JournalService journalService;
     @Autowired
     private UserService userService;
-
     @PostMapping("/{userName}")
     public ResponseEntity<?> createEntry(@RequestBody Journal journal,@PathVariable String userName) {
         try {

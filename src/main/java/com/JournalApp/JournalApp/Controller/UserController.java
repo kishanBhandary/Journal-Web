@@ -37,5 +37,15 @@ public class UserController {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
-
+    @DeleteMapping("/{userName}")
+    public ResponseEntity<User> deleteUser(@RequestBody User user,@PathVariable String userName){
+        User removeUser = userService.findByUserName(userName);
+        if (removeUser!=null){
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+        else {
+            userService.deleteByUserName(userName);
+            return new ResponseEntity<>(HttpStatus.OK);
+        }
+    }
 }
