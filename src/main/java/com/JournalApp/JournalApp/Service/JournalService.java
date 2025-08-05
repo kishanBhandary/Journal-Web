@@ -5,6 +5,7 @@ import com.JournalApp.JournalApp.model.Journal;
 import com.JournalApp.JournalApp.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -15,6 +16,7 @@ public class JournalService {
 
    @Autowired
    private UserService userService;
+   @Transactional
    public void createUserJournals(Journal journal,String userName){
        User user = userService.findByUserName(userName);
        Journal saved = journalRepository.save(journal);
