@@ -16,7 +16,6 @@ public class JournalService {
 
    @Autowired
    private UserService userService;
-   @Transactional
    public void createUserJournals(Journal journal,String userName){
        User user = userService.findByUserName(userName);
        Journal saved = journalRepository.save(journal);
