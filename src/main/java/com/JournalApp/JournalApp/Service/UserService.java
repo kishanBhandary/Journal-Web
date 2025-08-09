@@ -19,7 +19,7 @@ public class UserService {
     private final PasswordEncoder passwordEncoder=new BCryptPasswordEncoder();
     public void saveUserEntry(User user) {
         user.setPassword(passwordEncoder.encode(user.getPassword()));
-        user.setRoles(Arrays.asList("Users"));
+        user.setRoles(List.of("Users"));
         userRepository.save(user);
     }
 
